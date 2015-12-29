@@ -1,0 +1,10 @@
+<a class="color-secondary waves-light waves-effect btn">
+  {{content.text}}
+  {{#if isRemovable}}
+    {{#if content.selected}}
+      <a class="waves-effect waves-red btn-floating" {{action 'removeAttribute'}}>
+        <i class="material-icons">close</i>
+      </a>
+{{/if}}
+{{/if}}
+</a>

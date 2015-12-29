@@ -1,3 +1,27 @@
-<h2 id="title">Welcome to Ember</h2>
+<main>
+  <div id="navbar" class="navbar navbar-fixed">
+    <nav>
+      <div id="navcontent" class="container">
+        {{#link-to 'index'}}
+          <img height=64 src="https://upload.wikimedia.org/wikipedia/commons/1/18/Database.svg" />
+        {{/link-to}}
+        {{link-to 'Just the Norm' 'index' class='brand-logo'}}
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="https://github.com/selbyk/fdAlgos.js">GitHub</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
-{{outlet}}
+  {{outlet}} {{md-modal-container}}
+
+  <footer class="page-footer">
+    <div class="footer-copyright">
+      <div class="container bold">
+        © 2015{{year}} <a href="https://selby.io">Selby Kendrick</a>
+        <a class="right" href="https://selby.io">https://selby.io</a>
+      </div>
+    </div>
+  </footer>
+
+</main>

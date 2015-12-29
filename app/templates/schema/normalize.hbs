@@ -1,0 +1,117 @@
+<div class="row">
+  <div class="col s12">
+    <h2 class="header color-secondary-text">Normalization</h2>
+    <h3 class="caption flow-text">Be patient while we run a few algorithms over the information you provided, and hopefully you may gain some insight.</h3>
+  </div>
+  <div class="row">
+    <div class="col s12">
+      <p class="truncate">{{prettyRelationalSchema}}</p>
+      <ul class="z-depth-3 collection">
+        {{#each schema.fds as |fd|}}
+          <li class="collection-item">{{fd.pretty}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col s12">
+    <h3 class="header">Attribute/Key Analysis</h3>
+  </div>
+  {{#if model.specialKeys.necessary}}
+
+    <div class="col s12">
+      <h3 class="caption flow-text">Necessary Keys</h3>
+      <ul class="z-depth-3 collection">
+        {{#each model.specialKeys.necessary as |attr|}}
+          <li class="collection-item">{{attr}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  {{else}}
+    <p class="color-secondary-text" style="text-decoration: line-through;">Necessary Keys</p>
+  {{/if}}
+  {{#if model.specialKeys.candidate}}
+
+    <div class="col s12">
+      <h3 class="caption flow-text">Candidate Keys</h3>
+      <ul class="z-depth-3 collection">
+        {{#each model.specialKeys.candidate as |attr|}}
+          <li class="collection-item">{{attr}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  {{else}}
+    <p class="color-secondary-text" style="text-decoration: line-through;">Candidate Keys</p>
+  {{/if}}
+  {{#if model.specialKeys.middleGround}}
+    <div class="col s12">
+      <h3 class="caption flow-text">MiddleGround Keys</h3>
+      <ul class="z-depth-3 collection">
+        {{#each model.specialKeys.middleGround as |attr|}}
+          <li class="collection-item">{{attr}}</li>
+        {{/each}}
+      </ul>
+    </div>{{else}}
+    <p class="color-secondary-text" style="text-decoration: line-through;">MiddleGround Keys</p>
+  {{/if}}
+  {{#if model.specialKeys.useless}}
+    <div class="col s12">
+      <h3 class="caption flow-text">Useless Keys</h3>
+      <ul class="z-depth-3 collection">
+        {{#each model.specialKeys.useless as |attr|}}
+          <li class="collection-item">{{attr}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  {{else}}
+    <p class="color-secondary-text" style="text-decoration: line-through;">Useless Keys</p>
+  {{/if}}
+</div>
+
+<div class="row">
+  <div class="col s12">
+    <h3 class="header">Generated Schemas</h3>
+  </div>
+
+  <div class="col s12">
+    <h3 class="caption flow-text">Third Normal Form (3NF)</h3>
+    <ul class="z-depth-3 collection">
+      {{#each model.3nf as |attr|}}
+        <li class="collection-item">{{attr}}</li>
+      {{/each}}
+    </ul>
+  </div>
+  <div class="col s12">
+    <h3 class="caption flow-text">Boyce-codd Normal Form (BCNF)</h3>
+    <ul class="z-depth-3 collection">
+      {{#each model.bcnf as |attr|}}
+        <li class="collection-item">{{attr}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12">
+    <h3 class="header right-align">Thanks to Bernstein & Boyce Codd</h3>
+    <p class="caption right-align">We can let a machine and a few clever algorithms do the hard parts of normalization for us.</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12">
+    <h3 class="header color-secondary-text left-align">And also to Webtask.io...</h3>
+    <p class="caption flow-text left-align">...for letting us use their computing.</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12 center-align">
+    <p class="header">Not 100% sure the algorithms are correct, but I'll update any mistakes that are brought to my attention. May have to show them step-by-step. Check them out on GitHub if you're interested or think you could be able to help. =)</p>
+    <a href="https://github.com/selbyk/fdAlgos.js" class="btn-large waves-effect waves-dark">Functional Dependencies ></a>
+  </div>
+</div>
+
+{{outlet}}

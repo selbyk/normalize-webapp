@@ -1,0 +1,57 @@
+<div class="row center-align">
+  <div class="col s12 left-align">
+    <h3 class="header">Functional Dependency</h3>
+    <p class="caption flow-text">Now we must create a list of all the functional dependencies we can think of... don't want to miss anything.</p>
+  </div>
+</div>
+{{#each schema.attrs as |attribute|}}
+  {{schema-attribute content=attribute isRemovable=false}}
+{{/each}}
+<div id="droppableFdRow" class="row droppableFd">
+  <div class="col s12 metaText center-align">
+    <div class="col s4 center-align">
+      <p class="flow-text tSecondaryLight">These attributes</p>
+    </div>
+    <div class="col s4 center-align">
+      <p class="flow-text">should uniquely identify</p>
+    </div>
+    <div class="col s4 center-align tPrimaryLight">
+      <p class="flow-text">these attributes.</p>
+    </div>
+  </div>
+  <div id="fdTable">
+    {{attribute-drop id="fdKey" class="cSecondaryLight" action="droppedAsKey" pressedAction="selectedAsKey" attributes=keyAttrs alt='Drag some attributes that define a key.'}}
+    <div id="fdArrow"></div>
+    {{attribute-drop id="fdDep" class="cPrimaryLight" action="droppedAsSchema" pressedAction="selectedAsValue" attributes=valueAttrs alt='Drop attributes that depend on the key.'}}
+  </div>
+  <div class="row">
+    <div class="col s4 push-s6 center-align">
+      {{md-btn text='Add to List' class="cSuccess hoverable" icon='mdi-content-add' action='saveFunctDep'}}
+    </div>
+  </div>
+</div>
+<div class="row thinRowTop">
+  <div class="col s12">
+    <P class="truncate">{{schema.prettySchema}}</p>
+    <ul class="z-depth-3 collection">
+      {{#each fds as |fd|}}
+        <li class="collection-item">
+          <a class="waves-effect waves-red btn-floating" {{action 'removeFd' fd.raw}}>
+            <i class="material-icons">close</i>
+          </a>
+          {{{fd.pretty}}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12 center-align">
+    <h4 class="header">We're ready when you are.</h4>
+  </div>
+</div>
+<div class="row thinRowTop">
+  <div class="col s12 center-align">
+    {{#link-to 'schema.normalize' class="btn-large waves-effect waves-dark" }}Normalize! >{{/link-to}}
+  </div>
+</div>

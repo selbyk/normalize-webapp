@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col s12">
+    <h2 class="header color-secondary-text">Relational Schema</h2>
+    <h3 class="caption flow-text">A group of all stored information attributes that identify, describe, relate to, or describe the relation of one another.</h3>
+  </div>
+</div>
+
+{{#md-card-panel class="z-depth-3" id="card-panel" data-tooltip="Drag from here!" }}
+  {{#if schema.attrs}}
+    {{#each schema.attrs as |attribute|}}
+      {{schema-attribute content=attribute isDraggable=false}}
+    {{/each}}
+    <div class="fix"></div>
+  {{else}}
+    <p class="flow-text text-lighten-4">Waiting to see which attributes you're working with today!
+      <br> Might I suggest Class, Time, Teacher, Classroom, and Student?</p>
+  {{/if}}
+{{/md-card-panel}}
+
+<div class="row">
+  <div class="col s8 push-s2 input-field">
+    <form {{action 'addAttribute' on="submit"}}>
+      <i class="material-icons prefix">note_add</i> {{input type="text" id="addAttributeInput" value=attribute}}
+      <label for="addAttributeInput">Add Attribute</label>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12 center-align">
+    <h4 class="header color-secondary-text">Got em all?</h4>
+    {{#link-to 'schema.dependencies' class="btn-large waves-effect waves-dark" }}Functional Dependencies >{{/link-to}}
+  </div>
+</div>

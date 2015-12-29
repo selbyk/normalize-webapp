@@ -1,0 +1,10 @@
+{{#if attributes}}
+  {{#each attributes as |attribute|}}
+    <div class="chip">
+      {{attribute}}
+      <i class="material-icons">close</i>
+    </div>
+  {{/each}}
+{{else}}
+  <p class="center-align">{{alt}}</p>
+{{/if}}

@@ -1,0 +1,223 @@
+@import './colors';
+@import 'materialize';
+@import 'ember-cli-materialize';
+html {
+  height: 100%;
+//  background:
+//  url(https://upload.wikimedia.org/wikipedia/commons/4/49/Applications-database.svg) 95% no-repeat,
+  //url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Relational_database_terms.svg/2000px-Relational_database_terms.svg.png) 5% 10% no-repeat;
+  //background-size: 30vw;
+//  background-attachment: fixed;
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  height: 100%;
+  flex-direction: column;
+  //top: 64px;
+  //margin: 64px auto;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+12,ffffff+89&0+0,0.7+13,0.7+89,0+100 */
+  //background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,0) 0%, rgba(255,255,255,0.65) 12%, rgba(255,255,255,0.7) 13%, rgba(255,255,255,0.7) 89%, rgba(255,255,255,0) 100%);
+  /* FF3.6-15 */
+  //background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,0) 0%,rgba(255,255,255,0.65) 12%,rgba(255,255,255,0.7) 13%,rgba(255,255,255,0.7) 89%,rgba(255,255,255,0) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  //background: radial-gradient(ellipse at center, rgba(255,255,255,0) 0%,rgba(255,255,255,0.65) 12%,rgba(255,255,255,0.7) 13%,rgba(255,255,255,0.7) 89%,rgba(255,255,255,0) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  //filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#00ffffff',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */
+}
+main {
+  height: 100%;
+  flex: 1 0 auto;
+}
+.thinRow {
+  padding: 0;
+}
+.thinRowTop {
+  padding-top: 0 !important;
+}
+
+#schemaTabNav {
+  width: 100%;
+}
+
+#navbar {
+  //position: absolute;
+  //top: 0;
+  //width: 100%;
+}
+#navcontent {
+  @include setTextColor($primary-color);
+  z-index: 5;
+    height: 64px;
+  //max-width: 950px;
+  //margin: inherit auto;
+  //position: absolute;
+  //top: 0;
+  //left: 50%;
+}
+#navlist {
+  margin: 0 auto inherit auto;
+  font: "Source Sans Pro";
+  text-align: center;
+
+ li {
+  list-style-type: disc !important;
+  display: inline-block;
+  padding-right: 3rem;
+  margin: auto;
+}
+  li:last-child {
+    padding-right: 0rem;
+  }
+}
+.row {
+  padding: 3rem;
+}
+
+.tealPanel {
+  background-color: $primary-color-light;
+  @include setTextColor($primary-color-light);
+}
+
+.darkTealPanel {
+  background-color: color('teal','darken-3');
+  @include setTextColor(color('teal','darken-3'));
+  @extend .hoverable;
+  @extend .z-depth-2;
+}
+
+footer {
+
+  background-color: color('light-blue','darken-1')  !important;
+  .footer-copyright {
+    background-color: color('light-blue','darken-3') !important;
+    color: pick-visible-color(color('light-blue','darken-3')) !important;
+    @extend strong;
+    a {
+      color: pick-visible-color(color('light-blue','darken-3')) !important;
+    }
+  }
+}
+
+.attributeBtn {
+  display: inline-block !important;
+  .btn {
+
+    margin: 0.5rem;
+    background-color: color('indigo', 'darken-2');
+    @include setTextColor(color('indigo', 'darken-2'));
+  }
+  &.selected {
+    a {
+      background-color: color('blue', 'lighten-2');
+      @include setTextColor(color('blue', 'lighten-2'));
+    }
+  }
+}
+.materialize-tabs {
+  margin-top: 0;
+padding: 0;
+padding-bottom: inherit;
+z-index: 10000000;
+}
+.header {
+  color: $primary-color;
+}
+
+.cPrimary {
+  background-color: $primary-color !important;
+  @include setTextColor($primary-color);
+}
+.cPrimaryLight {
+  background-color: $primary-color-light !important;
+  @include setTextColor($primary-color-light);
+}
+.cSuccess {
+  background-color: $success-color !important;
+  @include setTextColor($success-color);
+}
+.cSecondaryLight {
+  background-color: $secondary-color-light !important;
+  @include setTextColor($secondary-color-light);
+}
+
+
+.tSecondaryLight {
+  color: $secondary-color-light !important;
+}
+
+.tPrimaryLight {
+  color: $primary-color-light !important;
+}
+
+.color-secondary {
+  background-color: $secondary-color !important;
+  @include setTextColor($secondary-color);
+}
+
+.color-secondary-text {
+  color: $secondary-color;
+  text-shadow: 3px 2px 2px pick-visible-color($secondary-color);
+}
+
+.2c-text-full {
+  color: $secondary-color;
+  background-color: pick-visible-color($secondary-color) !important;
+  text-shadow: 3px 2px 2px pick-visible-color($secondary-color);
+  border: 1px solid $secondary-color;
+}
+
+#fdTable{
+  position: relative;
+    display: table;
+    width:100%;
+    height: 100%;
+    background: transparent url(/relatedto.svg) center center no-repeat;
+    background-size: 10vw;
+    #fdKey {
+      display: table-cell;
+      float: none;
+    background-color: rgba(71, 100, 129, 0.5);
+    @include setTextColor($secondary-color);
+      left: 0;
+      top: 0;
+      width: 40%;
+      height: 100%;
+    }
+    #fdArrow {
+      display: table-cell;
+      width: 20%;
+        float: none;
+        //left: 50%;
+        //top: 50%;
+        height: 10vw;
+        //margin-top: -5vh;
+        //margin-left: -5vw;
+      }
+    #fdDep {
+      display: table-cell;
+      background-color: rgba(238, 128, 94, 0.5);
+@include setTextColor($secondary-color-light);
+      float: none;
+      right: 0;
+      top: 0;
+      width: 40%;
+      height: 100%;
+    }
+}
+
+
+
+p {
+  @extend .flow-text;
+}
+.fix {
+  clear: both;
+}
+.is-dragging {
+  background: transparent !important;
+}
+.keyIcon {
+  background: url(/key.svg) center center no-repeat;
+}
