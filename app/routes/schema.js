@@ -22,6 +22,9 @@ var fixtures = {
 };
 
 export default Ember.Route.extend({
+  willTransition: (t) => {
+    this.Talk.publish('childRouteUpdated', t.get('targetName'));
+  }.on('didTransition'),
   setupController(controller) {
     controller.Talk.subscribe('childRouteUpdated', controller, 'onChildRouteUpdated');
     controller.Talk.subscribe('askedForData', controller, 'onAskedForData');
