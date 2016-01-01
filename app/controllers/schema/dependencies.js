@@ -14,27 +14,27 @@ export default Ember.Controller.extend({
   }),
   actions: {
     droppedAsKey(attr) {
-        console.log(attr, 'droppedAsKey');
+        //console.log(attr, 'droppedAsKey');
         if (attr.text) {
-          let newFdKey = {};
-          newFdKey[attr.text] = attr.text;
-          this.set('fdKey', _.merge(newFdKey, this.get('fdKey')));
+          this.set('fdKey', _.chain(this.get('fdKey'))
+            .union([attr.text])
+            .value());
         } else if (attr) {
-          let newFdKey = {};
-          newFdKey[attr] = attr;
-          this.set('fdKey', _.merge(newFdKey, this.get('fdKey')));
+          this.set('fdKey', _.chain(this.get('fdKey'))
+            .union([attr])
+            .value());
         }
       },
       droppedAsSchema(attr) {
-        console.log(attr, 'droppedAsSchema');
+        //console.log(attr, 'droppedAsSchema');
         if (attr.text) {
-          let newFdValue = {};
-          newFdValue[attr.text] = attr.text;
-          this.set('fdValue', _.merge(newFdValue, this.get('fdValue')));
+          this.set('fdValue', _.chain(this.get('fdValue'))
+            .union([attr.text])
+            .value());
         } else if (attr) {
-          let newFdValue = {};
-          newFdValue[attr] = attr;
-          this.set('fdValue', _.merge(newFdValue, this.get('fdValue')));
+          this.set('fdValue', _.chain(this.get('fdValue'))
+            .union([attr])
+            .value());
         }
       },
       selectedAsKey() {
