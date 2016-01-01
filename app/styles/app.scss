@@ -1,6 +1,7 @@
 @import './colors';
 @import 'materialize';
 @import 'ember-cli-materialize';
+@import "bower_components/font-awesome/scss/font-awesome";
 html {
   height: 100%;
 //  background:
@@ -71,6 +72,32 @@ main {
     padding-right: 0rem;
   }
 }
+
+
+#nav-mobile > li {
+  width: 12rem;
+}
+
+#nav-mobile > li > a > i.fa-lg {
+  height: 17px;
+}
+
+  #github-dropdown > li {
+    padding: 0rem;
+    height: 64px;
+
+  }
+
+#github-dropdown > li > a {
+  display: block;
+  //padding: 0;
+  height: 64px;
+}
+
+.dropdown-content {
+  overflow-y: hidden;
+}
+
 .row {
   padding: 3rem;
 }

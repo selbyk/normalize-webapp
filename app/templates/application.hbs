@@ -1,4 +1,5 @@
 <main>
+
   <div id="navbar" class="navbar navbar-fixed">
     <nav>
       <div id="navcontent" class="container">
@@ -7,10 +8,28 @@
         {{/link-to}}
         {{link-to 'Just the Norm' 'index' class='brand-logo'}}
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="https://github.com/selbyk/fdAlgos.js">GitHub</a></li>
+          <!-- Dropdown Trigger -->
+          <li>
+            <a class="dropdown-button" href="#!" data-activates="github-dropdown">
+              {{fa-icon "github" size="lg"}} GitHub<i class="material-icons right">arrow_drop_down</i>
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
+    <!-- Dropdown Structure -->
+    <ul id="github-dropdown" class="dropdown-content">
+      <li>
+        <a href="https://github.com/selbyk/fdAlgos.js">
+          <i class="material-icons left">settings_ethernet</i> Algorithms
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/selbyk/normalize-webapp">
+          <i class="material-icons left">input</i> Webapp
+        </a>
+      </li>
+    </ul>
   </div>
 
   {{outlet}} {{md-modal-container}}
