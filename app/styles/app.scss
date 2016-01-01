@@ -15,6 +15,7 @@ body {
   min-height: 100vh;
   height: 100%;
   flex-direction: column;
+  background-color: #fff;
   //top: 64px;
   //margin: 64px auto;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+12,ffffff+89&0+0,0.7+13,0.7+89,0+100 */
@@ -40,12 +41,32 @@ main {
 
 #schemaTabNav {
   width: 100%;
+  padding: 0;
+  z-index: 1000;
+}
+
+#schemaTabNav .tabs {
+  z-index: 10001;
+  cursor:pointer;
+  background-color: #fcfdff;
+}
+
+#schemaTabNav > .col {
+  padding: 0;
+}
+
+.materialize-tabs {
+  margin-top: 0;
+padding: 0;
+padding-bottom: inherit;
+
 }
 
 #navbar {
   //position: absolute;
   //top: 0;
   //width: 100%;
+  z-index: 1001;
 }
 #navcontent {
   @include setTextColor($primary-color);
@@ -76,6 +97,7 @@ main {
 
 #nav-mobile > li {
   width: 12rem;
+  z-index: 10000001;
 }
 
 #nav-mobile > li > a > i.fa-lg {
@@ -85,7 +107,6 @@ main {
   #github-dropdown > li {
     padding: 0rem;
     height: 64px;
-
   }
 
 #github-dropdown > li > a {
@@ -142,12 +163,7 @@ footer {
     }
   }
 }
-.materialize-tabs {
-  margin-top: 0;
-padding: 0;
-padding-bottom: inherit;
-z-index: 10000000;
-}
+
 .header {
   color: $primary-color;
 }
@@ -168,7 +184,6 @@ z-index: 10000000;
   background-color: $secondary-color-light !important;
   @include setTextColor($secondary-color-light);
 }
-
 
 .tSecondaryLight {
   color: $secondary-color-light !important;
@@ -233,8 +248,6 @@ z-index: 10000000;
       height: 100%;
     }
 }
-
-
 
 p {
   @extend .flow-text;
