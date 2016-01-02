@@ -4,17 +4,14 @@
 @import "bower_components/font-awesome/scss/font-awesome";
 html {
   height: 100%;
-//  background:
-//  url(https://upload.wikimedia.org/wikipedia/commons/4/49/Applications-database.svg) 95% no-repeat,
+  //  background:
+  //  url(https://upload.wikimedia.org/wikipedia/commons/4/49/Applications-database.svg) 95% no-repeat,
   //url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Relational_database_terms.svg/2000px-Relational_database_terms.svg.png) 5% 10% no-repeat;
   //background-size: 30vw;
-//  background-attachment: fixed;
+  //  background-attachment: fixed;
 }
 body {
-  display: flex;
-  min-height: 100vh;
   height: 100%;
-  flex-direction: column;
   background-color: #fff;
   //top: 64px;
   //margin: 64px auto;
@@ -28,9 +25,15 @@ body {
   //filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#00ffffff',GradientType=1 );
   /* IE6-9 fallback on horizontal gradient */
 }
-main {
-  height: 100%;
-  flex: 1 0 auto;
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+	height: 100%;
+	margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+height: 50px; /* .push must be the same height as .footer */
 }
 .thinRow {
   padding: 0;
@@ -38,40 +41,51 @@ main {
 .thinRowTop {
   padding-top: 0 !important;
 }
-
 #schemaTabNav {
   width: 100%;
   padding: 0;
   z-index: 1000;
 }
-
 #schemaTabNav .tabs {
   z-index: 10001;
-  cursor:pointer;
-  background-color: #fcfdff;
+  cursor: pointer;
+  //font-color: $primary-color !important;
+  //background-color: #fcfdff !important;
+  color: #fcfdff !important;
+  background-color: rgba(44, 62, 80, 0.95);
 }
-
+#schemaTabNav > div > ul > li > a {
+  color: #fcfdff !important;
+}
 #schemaTabNav > .col {
   padding: 0;
+  a {
+    font-color: #fcfdff !important;
+  }
 }
-
+.indicator.indicator1,
+.indicator.indicator2 {
+  background-color: #fcfdff;
+}
 .materialize-tabs {
   margin-top: 0;
-padding: 0;
-padding-bottom: inherit;
-
+  padding: 0 0 inherit;
 }
-
 #navbar {
   //position: absolute;
   //top: 0;
   //width: 100%;
   z-index: 1001;
+  nav {
+    //font-color: $primary-color !important;
+    //background-color: #fcfdff !important;
+    font-color: #fcfdff !important;
+    background-color: $primary-color !important;
+  }
 }
 #navcontent {
-  @include setTextColor($primary-color);
   z-index: 5;
-    height: 64px;
+  height: 64px;
   //max-width: 950px;
   //margin: inherit auto;
   //position: absolute;
@@ -79,65 +93,53 @@ padding-bottom: inherit;
   //left: 50%;
 }
 #navlist {
-  margin: 0 auto inherit auto;
+  margin: 0 auto inherit;
   font: "Source Sans Pro";
   text-align: center;
-
- li {
-  list-style-type: disc !important;
-  display: inline-block;
-  padding-right: 3rem;
-  margin: auto;
-}
+  li {
+    list-style-type: disc !important;
+    display: inline-block;
+    padding-right: 3rem;
+    margin: auto;
+  }
   li:last-child {
-    padding-right: 0rem;
+    padding-right: 0;
   }
 }
-
-
 #nav-mobile > li {
   width: 12rem;
   z-index: 10000001;
 }
-
 #nav-mobile > li > a > i.fa-lg {
   height: 17px;
 }
-
-  #github-dropdown > li {
-    padding: 0rem;
-    height: 64px;
-  }
-
+#github-dropdown > li {
+  padding: 0;
+  height: 64px;
+}
 #github-dropdown > li > a {
   display: block;
   //padding: 0;
   height: 64px;
 }
-
 .dropdown-content {
   overflow-y: hidden;
 }
-
 .row {
   padding: 3rem;
 }
-
 .tealPanel {
   background-color: $primary-color-light;
   @include setTextColor($primary-color-light);
 }
-
 .darkTealPanel {
   background-color: color('teal','darken-3');
   @include setTextColor(color('teal','darken-3'));
   @extend .hoverable;
   @extend .z-depth-2;
 }
-
 footer {
-
-  background-color: color('light-blue','darken-1')  !important;
+  background-color: color('light-blue','darken-1') !important;
   .footer-copyright {
     background-color: color('light-blue','darken-3') !important;
     color: pick-visible-color(color('light-blue','darken-3')) !important;
@@ -147,11 +149,9 @@ footer {
     }
   }
 }
-
 .attributeBtn {
   display: inline-block !important;
   .btn {
-
     margin: 0.5rem;
     background-color: color('indigo', 'darken-2');
     @include setTextColor(color('indigo', 'darken-2'));
@@ -163,11 +163,9 @@ footer {
     }
   }
 }
-
 .header {
   color: $primary-color;
 }
-
 .cPrimary {
   background-color: $primary-color !important;
   @include setTextColor($primary-color);
@@ -184,71 +182,64 @@ footer {
   background-color: $secondary-color-light !important;
   @include setTextColor($secondary-color-light);
 }
-
 .tSecondaryLight {
   color: $secondary-color-light !important;
 }
-
 .tPrimaryLight {
   color: $primary-color-light !important;
 }
-
 .color-secondary {
   background-color: $secondary-color !important;
   @include setTextColor($secondary-color);
 }
-
 .color-secondary-text {
   color: $secondary-color;
   text-shadow: 3px 2px 2px pick-visible-color($secondary-color);
 }
-
 .2c-text-full {
   color: $secondary-color;
   background-color: pick-visible-color($secondary-color) !important;
   text-shadow: 3px 2px 2px pick-visible-color($secondary-color);
   border: 1px solid $secondary-color;
 }
-
-#fdTable{
+#fdTable {
   position: relative;
-    display: table;
-    width:100%;
-    height: 100%;
-    background: transparent url(/relatedto.svg) center center no-repeat;
-    background-size: 10vw;
-    #fdKey {
-      display: table-cell;
-      float: none;
+  display: table;
+  width: 100%;
+  height: 100%;
+  background: transparent url(/relatedto.svg) center center no-repeat;
+  background-size: 10vw;
+  #fdKey {
+    display: table-cell;
+    float: none;
     background-color: rgba(71, 100, 129, 0.5);
     @include setTextColor($secondary-color);
-      left: 0;
-      top: 0;
-      width: 40%;
-      height: 100%;
-    }
-    #fdArrow {
-      display: table-cell;
-      width: 20%;
-        float: none;
-        //left: 50%;
-        //top: 50%;
-        height: 10vw;
-        //margin-top: -5vh;
-        //margin-left: -5vw;
-      }
-    #fdDep {
-      display: table-cell;
-      background-color: rgba(238, 128, 94, 0.5);
-@include setTextColor($secondary-color-light);
-      float: none;
-      right: 0;
-      top: 0;
-      width: 40%;
-      height: 100%;
-    }
+    left: 0;
+    top: 0;
+    width: 40%;
+    height: 100%;
+  }
+  #fdArrow {
+    display: table-cell;
+    width: 20%;
+    float: none;
+    //left: 50%;
+    //top: 50%;
+    height: 10vw;
+    //margin-top: -5vh;
+    //margin-left: -5vw;
+  }
+  #fdDep {
+    display: table-cell;
+    background-color: rgba(238, 128, 94, 0.5);
+    @include setTextColor($secondary-color-light);
+    float: none;
+    right: 0;
+    top: 0;
+    width: 40%;
+    height: 100%;
+  }
 }
-
 p {
   @extend .flow-text;
 }
