@@ -39,7 +39,9 @@ export default Ember.Controller.extend({
         attr = attr ? attr.toUpperCase().replace(/[^A-Z\s]/g, '').trim().replace(/\s+/g, '-') : null;
         if (attr && attr.length > 0) {
           if (!_.includes(this.get('schemaAttrs'), attr)) {
-            this.set('schemaAttrs', this.get('schemaAttrs').concat(attr));
+            var attrObj = {};
+            attrObj[attr] = {text: attr, selected: false};
+            this.set('schemaAttrs', _.chain(attrObj).merge(this.get('schemaAttrs')).value());
           } else {
             Materialize.toast('Attribute already exists!', 4000, 'yellow black-text'); // 4000 is the duration of the toast
           }
